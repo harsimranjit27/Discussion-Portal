@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heading_bar">Discussion Portal</div>
+        <div class="main_content">
+            <div class="ques_section">
+                <button class="add_ques_btn">New Question form</button>
+                <input type="text" name="searchQn" id="search_questions" placeholder="search questions..." >
+                <div id="display_ques_added"></div>
+            </div>
+            <div class="right_section">
+                <div class="add_ques_section">
+                    <h2>Welcome to Discussion Portal !</h2>
+                    <p class="p_heading">Enter a subject and question to get started</p>
+                    <input type="text" name="" id="subject_name" placeholder="Subject" required >
+                    <textarea name="" id="write_ques" cols="" rows="" placeholder="Question" required ></textarea>
+                    <button id="submit_btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
