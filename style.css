@@ -20,7 +20,7 @@ body{
     width: 45%;
     background-color: whitesmoke;
 }
-.add_ques_btn{
+#add_ques_btn{
     margin: 4% 2%;
     width: 8rem;
     border:2px solid rgb(0, 140, 255);
