@@ -1,3 +1,7 @@
+// BUTTON AND SEARCH-INPUTS
+let new_question_btn = document.getElementById("add_ques_btn");
+let search_questions = document.getElementById("search_questions");
+
 // MAIN QUESTIONS ADDED (add_ques_section)
 let subjectAdded = document.getElementById("subject_name");
 let questionAdded = document.getElementById("write_ques");
@@ -31,6 +35,11 @@ MAIN_ARRAY.forEach((arrObject) => {
     // console.log("arrObj : ", arrObject);
     // console.log("idCount",idCount);
     appendParentDivToDOM(arrObject);
+});
+
+new_question_btn.addEventListener("click",(event)=>{
+    document.querySelector(".add_ques_section").style.display = "initial";
+    document.querySelector(".add_response_section").style.display = "none";
 });
 
 submit_ques_btn.addEventListener("click", (event) => {
