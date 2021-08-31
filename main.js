@@ -4,7 +4,9 @@ let search_questions = document.getElementById("search_questions");
 
 // MAIN QUESTIONS ADDED (add_ques_section)
 let subjectAdded = document.getElementById("subject_name");
+subjectAdded.style.fontSize = "1em";
 let questionAdded = document.getElementById("write_ques");
+questionAdded.style.fontSize = "2em";
 let submit_ques_btn = document.getElementById("submit_ques");
 
 // DISPLAY THE MAIN QUESTIONS (display_ques_added)
@@ -41,6 +43,7 @@ new_question_btn.addEventListener("click",(event)=>{
     document.querySelector(".add_ques_section").style.display = "initial";
     document.querySelector(".add_response_section").style.display = "none";
 });
+search_questions.addEventListener("keyup",searchQuestions);
 
 submit_ques_btn.addEventListener("click", (event) => {
     
@@ -216,4 +219,43 @@ function setLocalStorage(subQuesObject) {
 
     localStorage.setItem("questionsArr", JSON.stringify(MAIN_ARRAY));
 
+}
+
+let printed = false;
+function searchQuestions() {
+    
+    let inputText = document.getElementById("search_questions").value.toUpperCase();
+    let child = document.getElementById("search_list");  
+    let i=0;
+    let not_found = true;
+
+    MAIN_ARRAY.forEach(element => {
+
+        let subject = element.subjectAdded.toUpperCase();
+        if (subject.indexOf(inputText) > -1) {
+            document.getElementById(i).style.display = "";
+            not_found = false;   
+        }
+        else{
+            document.getElementById(i).style.display = "none";
+        }
+        if(!not_found && printed){
+            child.parentNode.removeChild(child);
+            printed = false;
+        }
+        i++;
+    });
+    if(not_found && !printed){
+        
+        let container = document.createElement("div");
+        container.id = "search_list";
+
+        let head = document.createElement("h4");
+        head.style.fontSize = "1.5em";
+        head.innerText="No match found";
+        
+        container.appendChild(head);
+        parentDiv.appendChild(container);
+        printed = true;
+    }
 }
