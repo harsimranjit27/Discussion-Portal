@@ -24,7 +24,6 @@ if (data) {
     data = JSON.parse(data);
 }
 
-
 // MAIN ARRAY
 let MAIN_ARRAY = (data || []) ;
 
@@ -88,14 +87,11 @@ parentDiv.addEventListener("click", (event) => {
     }
     
     let selectedQuesToDisplay = document.createElement("div");
-    selectedQuesToDisplay.id = event.target.parentNode.id;
-    // console.log(selectedQuesToDisplay);
-
     questionID = event.target.parentNode.id;
     // console.log("questionID",questionID);
-    
-    // console.log(event.target.parentNode);
-    
+    selectedQuesToDisplay.id = questionID;
+    // console.log(selectedQuesToDisplay);
+
     let subjectH2 = document.createElement("h2");
     subjectH2.innerText = MAIN_ARRAY[event.target.parentNode.id].subjectAdded;
     subjectH2.classList.add("subjectH2");
@@ -178,14 +174,22 @@ function appendResponsesToDOM(commentArr) {
 }
 
 resolve_btn.addEventListener("click",(event)=>{
-
     parentDiv.removeChild(document.getElementById(questionID));
     document.querySelector(".add_ques_section").style.display = "initial";
     document.querySelector(".add_response_section").style.display = "none";
 
-    MAIN_ARRAY.splice(questionID,1);
-    localStorage.setItem("questionsArr",JSON.stringify(MAIN_ARRAY));
+    for (let i = questionID; i < MAIN_ARRAY.length; i++) {
+        // console.log(document.getElementById(i));
+        document.getElementById(i).setAttribute("id",i-1);
+    }
 
+    MAIN_ARRAY.splice(questionID,1);
+    if (MAIN_ARRAY.length === 0) {
+        parentDiv.style.border = "none";
+        parentDiv.style.overflowY = "hidden";
+    }
+    localStorage.setItem("questionsArr",JSON.stringify(MAIN_ARRAY));
+    
 });
 
 function setLocalStorage(subQuesObject) {
