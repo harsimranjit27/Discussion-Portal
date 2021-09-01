@@ -142,3 +142,85 @@ h2,h3{
     margin : 0%;
     word-wrap : break-word;
 }
+
+@media (max-width: 768px){
+    #add_ques_btn{
+        position: absolute;
+        top: 0.5em;
+        left: 2em;
+        margin: 2% 1%;
+    }
+    #search_questions{
+        position: absolute;
+        top: 0.5em;
+        margin: 2% 1%;
+        left: 13em;
+        height: 1.45em;
+        border: 1px solid black;
+    }
+    h2{
+        margin-top: 3%;
+        margin-bottom: 1%;
+        font-size: 1.6em;
+    }
+    .main_content{
+        display: flex;
+        flex-wrap: wrap;
+        height: 84vh;
+        position: relative;  
+    }
+    .ques_section{
+        width: 96%;
+        margin: 0% 3%;
+        height: 42vh;
+    }
+    .parentDiv{
+        position: absolute;
+        top: 18%;
+        height: 33vh;
+        width: 90%;
+        padding: 1% 2%;
+    }
+    .right_section{
+        width: 95%;
+    }
+    .reduce_height_for_mobile{
+        height: 30vh;
+    }
+    .reduce_height_for_mobile_parentDiv{
+        height: 20vh;
+        margin-top: 1%;
+    }
+    .add_ques_section{
+        width: 92%;
+        height: 48vh;
+        margin-left: 0%;
+    }
+    .add_response_section{
+        width: 95%;
+        height: 60vh;
+    }
+    #display_responses{
+        height: 12vh;
+        overflow-y: auto;
+    }
+    #nameOfResponder{
+        width: 98%;
+        border: 1px solid black;
+    }
+    #commentOfResponder{
+        border: 1px solid black;
+    }
+    #subject_name{
+        border: 1px solid black;
+        width: 98%;
+    }
+    #write_ques{
+        width: 98%;
+        height: 18vh;
+        border: 1px solid black;
+    }
+    #submit_ques{
+        padding: 2%;
+    }
+}
