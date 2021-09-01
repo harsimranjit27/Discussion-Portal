@@ -82,11 +82,11 @@ function appendParentDivToDOM(arrObject) {
     
     parentDiv.appendChild(childDiv);
     displayQn.appendChild(parentDiv);
-    
+    childDiv.addEventListener("click",clickOnDiv);
     idCount++;
 }
 
-parentDiv.addEventListener("click", (event) => {
+function clickOnDiv(event) {
     
     document.querySelector(".add_ques_section").style.display = "none";
     document.querySelector(".add_response_section").style.display = "initial";
@@ -100,7 +100,7 @@ parentDiv.addEventListener("click", (event) => {
     
     let selectedQuesToDisplay = document.createElement("div");
     questionID = event.target.parentNode.id;
-    // console.log("questionID",questionID);
+    console.log("questionID",questionID);
     selectedQuesToDisplay.id = questionID;
     // console.log(selectedQuesToDisplay);
 
@@ -119,7 +119,7 @@ parentDiv.addEventListener("click", (event) => {
     
     showResponsesInDOM(event);
     
-});
+}
 function showResponsesInDOM(event) {
 
     // console.log(responseSection);
@@ -158,6 +158,8 @@ submit_response_btn.addEventListener("click",(event)=>{
         name : rpName,
         comment : rpComment
     }
+    console.log(questionID);
+    console.log(MAIN_ARRAY);
     MAIN_ARRAY[questionID].comments.push(comment);
 
     localStorage.setItem("questionsArr",JSON.stringify(MAIN_ARRAY));
