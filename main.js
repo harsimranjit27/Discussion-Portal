@@ -42,6 +42,11 @@ MAIN_ARRAY.forEach((arrObject) => {
 new_question_btn.addEventListener("click",(event)=>{
     document.querySelector(".add_ques_section").style.display = "initial";
     document.querySelector(".add_response_section").style.display = "none";
+    let elem = document.querySelector(".ques_section");
+    elem.classList.remove("reduce_height_for_mobile");
+
+    elem = document.querySelector(".parentDiv");
+    elem.classList.remove("reduce_height_for_mobile_parentDiv");
 });
 search_questions.addEventListener("keyup",searchQuestions);
 
@@ -90,6 +95,8 @@ function clickOnDiv(event) {
     
     document.querySelector(".add_ques_section").style.display = "none";
     document.querySelector(".add_response_section").style.display = "initial";
+    document.querySelector(".ques_section").classList.add("reduce_height_for_mobile");
+    document.querySelector(".parentDiv").classList.add("reduce_height_for_mobile_parentDiv");
 
     MAIN_ARRAY = JSON.parse(localStorage.getItem("questionsArr"));
     
